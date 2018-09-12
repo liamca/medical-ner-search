@@ -42,4 +42,5 @@ If everything runs properly, you should see something like the following:
 Open a browser and point it to http://localhost:8080/ and then enter some medical content to test the results such as: 
 > Morquio syndrome (referred to as mucopolysaccharidosis IV, MPS IV, Morquio-Brailsford syndrome, or Morquio) is a rare metabolic disorder in which the body cannot process certain types of mucopolysaccharides (long chains of sugar molecules), which the body uses as lubricants and shock absorbers.
 
-
+The results should look as follows:
+![Medical NER Example using cTAKES](https://raw.githubusercontent.com/liamca/medical-ner-search/master/medical_ner_example.png)
