@@ -10,7 +10,6 @@ Using this technique, you can build applications such as this [PubMed Search Dem
 as well as create graph visualizations that shows correlations such as: 
 ![Medical NER Search Graph Demo of PubMed](https://raw.githubusercontent.com/liamca/medical-ner-search/master/medical_search_graph.png)
 
-
 This tutorial assumes that you will be leveraging Windows.
 
 ## What is Apache CTakes
