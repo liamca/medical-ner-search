@@ -3,6 +3,14 @@ Leveraging Apache cTAKES and Azure Search to Build and Medical Search App
 
 The goal of this project is to show how to leverage [Apache cTAKES](http://ctakes.apache.org/) along with [Azure Search](https://azure.microsoft.com/en-us/services/search/) to build an effective document search application.  
 
+Using this technique, you can build applications such as this [PubMed Search Demo](http://webmedsearch.azurewebsites.net)
+
+![Medical NER Search Demo of PubMed](https://raw.githubusercontent.com/liamca/medical-ner-search/master/pubmed_search_demo.png)
+
+as well as create graph visualizations that shows correlations such as: 
+![Medical NER Search Graph Demo of PubMed](https://raw.githubusercontent.com/liamca/medical-ner-search/master/medical_search_graph.png)
+
+
 This tutorial assumes that you will be leveraging Windows.
 
 ## What is Apache CTakes
