@@ -34,5 +34,11 @@ After installing this, from my machine I configured JAVA and Maven as follows:
 After this point I could change to the \examples-master\ctakes-web-client directory and run:
 > mvn jetty:run
 
-If everything runs properly, you should see the following: 
->
+If everything runs properly, you should see something like the following: 
+> [INFO] Started ServerConnector@3cf55e0c{HTTP/1.1}{0.0.0.0:8080}
+> [INFO] Started @38253ms
+> [INFO] Started Jetty Server
+
+Open a browser and point it to http://localhost:8080/ and then enter some medical content to test the results such as: 
+"Morquio syndrome (referred to as mucopolysaccharidosis IV, MPS IV, Morquio-Brailsford syndrome, or Morquio) is a rare metabolic disorder in which the body cannot process certain types of mucopolysaccharides (long chains of sugar molecules), which the body uses as lubricants and shock absorbers."
+
