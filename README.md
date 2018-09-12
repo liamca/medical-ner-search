@@ -34,8 +34,11 @@ To get this running, you will not only need to download this project, but also i
 After installing this, from my machine I configured JAVA and Maven as follows:
 
 > set JAVA_HOME=d:\ctakes\jdk1.8.0_152
+
 > set MAVEN_HOME=d:\ctakes\apache-maven-3.5.3
+
 > set M2_HOME=d:\ctakes\apache-maven-3.5.3
+
 > set path=%path%;d:\ctakes\apache-maven-3.5.3\bin;d:\ctakes\jdk1.8.0_152\bin
 
 After this point I could change to the \examples-master\ctakes-web-client directory and run:
@@ -43,7 +46,9 @@ After this point I could change to the \examples-master\ctakes-web-client direct
 
 If everything runs properly, you should see something like the following: 
 > [INFO] Started ServerConnector@3cf55e0c{HTTP/1.1}{0.0.0.0:8080}
+
 > [INFO] Started @38253ms
+
 > [INFO] Started Jetty Server
 
 Open a browser and point it to http://localhost:8080/ and then enter some medical content to test the results such as: 
