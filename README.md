@@ -58,7 +58,12 @@ The results should look as follows:
 ![Medical NER Example using cTAKES](https://raw.githubusercontent.com/liamca/medical-ner-search/master/medical_ner_example.png)
 
 ## Setting up Azure Search
-Now that we have a service that can extract medical entities from text, we need to create an Azure Search service that will make this content searchable to enable the types of applications show at the top.  To learn more about how to do this, please visit [Create an Azure Search service in the portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal).  For our demo purposes, you can create a [Free Azure Search Service](https://azure.microsoft.com/en-us/pricing/details/search/).
+Now that we have a service that can extract medical entities from text, we need to create an Azure Search service that will make this content searchable to enable the types of applications show at the top.  To learn more about how to do this, please visit [Create an Azure Search service in the portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal).  For our demo purposes, you can create a [Free Azure Search Service](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search#free-trial).
 
 Once you have created the Azure Search service, you will need to get your Azure Search Service name as you specified in [this step](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal#name-the-service-and-url-endpoint) as well as the [Admin API Key](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet#identify-your-azure-search-services-admin-api-key).
 
+## Extracting Medical Entities from Content and Ingesting into Azure Search
+The next step will be to take some content and first run it through cTAKES to get the metadata and then load the resulting content into an [Azure Search Index](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet).  For this demo, we will keep it simple and use some text files that have medical content in them.  In many cases, the content exists in file formats such as PDF and Office.  This demo does not show how to process this type of content, however [Apache Tika](https://tika.apache.org/) is an excellent tool for extracting text from these file types and you can see some .NET demo code on how to do this [text extraction here](https://github.com/liamca/AzureSearch-AzureFunctions-CognitiveServices/blob/master/ApacheTika/run.csx).
+
+### Running the Demo Code
+...
