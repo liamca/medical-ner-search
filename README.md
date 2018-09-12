@@ -33,3 +33,6 @@ After installing this, from my machine I configured JAVA and Maven as follows:
 
 After this point I could change to the \examples-master\ctakes-web-client directory and run:
 > mvn jetty:run
+
+If everything runs properly, you should see the following: 
+>
