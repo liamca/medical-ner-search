@@ -56,3 +56,9 @@ Open a browser and point it to http://localhost:8080/ and then enter some medica
 
 The results should look as follows:
 ![Medical NER Example using cTAKES](https://raw.githubusercontent.com/liamca/medical-ner-search/master/medical_ner_example.png)
+
+## Setting up Azure Search
+Now that we have a service that can extract medical entities from text, we need to create an Azure Search service that will make this content searchable to enable the types of applications show at the top.  To learn more about how to do this, please visit [Create an Azure Search service in the portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal).  For our demo purposes, you can create a [Free Azure Search Service](https://azure.microsoft.com/en-us/pricing/details/search/).
+
+Once you have created the Azure Search service, you will need to get your Azure Search Service name as you specified in [this step](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal#name-the-service-and-url-endpoint) as well as the [Admin API Key](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet#identify-your-azure-search-services-admin-api-key).
+
