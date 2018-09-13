@@ -1,9 +1,7 @@
 # How To Build a Medical Document Search Application[Draft]
 The goal of this project is to show how to leverage [Apache cTAKES](http://ctakes.apache.org/) along with [Azure Cognitive Search](https://azure.microsoft.com/en-us/blog/announcing-cognitive-search-azure-search-cognitive-capabilities/) to build an effective document search application.  
 
-One of the most important things in building an effective search application is to have as much metadata about the content as possible.  Unfortunately with medical documents, this is typically a very unstructured piece of content where you usually only have the block of text from the content.  For that reason, it is very important to "enrich" this content by analyzing it to extract meaningful metadata about the content, such as what diseases were mentioned, or what parts of the anatomy were discussed.  By doing this, you start to put structure to your content which greatly helps what you can do with a search based application.
-
-Using this technique, you can build applications such as this [PubMed Search Demo](http://webmedsearch.azurewebsites.net)
+One of the most important things in building an effective search application is to have as much metadata about the content as possible.  Unfortunately with medical documents, this is typically a very unstructured piece of content where you usually only have the block of text from the content.  For that reason, it is very important to "enrich" this content by analyzing it to extract meaningful metadata about the content, such as what diseases were mentioned, or what parts of the anatomy were discussed.  By doing this, you start to put structure to your content which greatly helps what you can do with a search based application. Both Apache cTAKES as well as Azure Cognitive Search leverage AI and Machine Learning techniques to do this enrichment of content.  By combining these technologies we can build applications such as this [PubMed Search Demo](http://webmedsearch.azurewebsites.net)
 
 ![Medical NER Search Demo of PubMed](https://raw.githubusercontent.com/liamca/medical-ner-search/master/pubmed_search_demo.png)
 
