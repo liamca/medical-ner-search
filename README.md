@@ -17,11 +17,48 @@ In this tutorial, we will walk through the following steps:
 3. Run an application that processes these PDF's against the Apace cTAKES service to extract medical entities and apply that to the Azure Search index
 4. Run an application that allows for searching and exploration of this medical content
 
+NOTE: Since a UMLS account is important, you may want to start with the step "Setup UMLS Account" before doing anything else.
+
 ## What is Apache cTAKES
 cTAKES stands for clinical text analytics and knowledge extraction and is a very effective method of extracting various medical based entities (named entity extraction) from a corpus of text.  For example it can identify disease or anatomical terms mentioned within the text.  It has been trained using dataources such as [UMLS (snomed)](https://www.nlm.nih.gov/healthit/snomedct/).
 
 ## What is Azure Cognitive Search
 [Azure Cognitive Search](https://azure.microsoft.com/en-us/blog/announcing-cognitive-search-azure-search-cognitive-capabilities/) is a merger of [Azure Search](https://azure.microsoft.com/en-us/services/search/) which is a platform as a service that makes it easy for developers to build great search experiences over their data with [Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) which has the ability to leverage AI extract meaning from content such as text and images.  By combining these technologies, Cognitive Search has the ability to let developer build effective search applications over unstructured content such as medical documents.
+
+## Creating the Azure Blob Storage account and Upload Content
+This tutorial assumes that your content exists in Azure Blob Storage.  Although it is not critical to do this in order to build this type of application, it makes everything much simpler since Azure Search can easily crawl Azure Blob Storage which greatly reduces the amount of code required.
+
+You will find a set of medical files from PubMed that we will use for this purpose.  
+
+> Create an Azure Blob Storage container and upload these files to your Azure Blob Storage container.  If you are not familiar with how to do this, please see [this page](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal)
+
+## Setting up Azure Search
+Next, we need to create an Azure Search service that will make this content searchable to enable the types of applications show at the top.  
+
+### IMPORTANT: Since Azure Cognitive Search is in private preview as of the writing of this content, it is important that the Azure Search Service you create is either in *South Central US* or *West Europe*.
+
+To learn more about how to do this, please visit [Create an Azure Search service in the portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal).  For our demo purposes, you can create a [Free Azure Search Service](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search#free-trial).
+
+Once you have created the Azure Search service, you will need to get your Azure Search Service name as you specified in [this step](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal#name-the-service-and-url-endpoint) as well as the [Admin API Key](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet#identify-your-azure-search-services-admin-api-key).
+
+## Creating the Azure Search Index and Ingesting the Medical Documents
+In this step we will create an Azure Search index that will consists of the text extracted from the medical documents as well as some useful metadata from this content such as file name, size, authors, etc.  We will be leveraging Cognitive Search pipeline to help with this step.  One thing to note, is that if the content included images such as scans, or xrays, we could enable OCR to also extract text from these images within the PDF's.  However, since our test documents are purely text based, we do not need to do this for this tutorial.
+
+It is highly recommended that you review the documentation on how to [Configure Cognitive Search](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob) to learn how to point Azure Search at your Blob Storage container.
+
+As you configure Cognitive Search, it is important that you:
+
+1. Choose the defaults for the data source as shown here:
+
+![Cognitive Search Data Source](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-datasource.png)
+
+2. Choose the following skills:
+
+![Cognitive Search Skills](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-cognitive-search-skills.png)
+
+3. Configure the Azure Search Index with the following schema and index name:
+
+![Azure Search Index Schema](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-index-schema.png)
 
 ## Getting Started with cTAKES
 In this section we will learn how to download and run a JAVA servlet based implimentation of Apache cTAKES that has the ability to receive through an API call a set of text that is processed and returns a set of medical named entities found in the content.
@@ -61,41 +98,6 @@ Open a browser and point it to http://localhost:8080/ and then enter some medica
 
 The results should look as follows:
 ![Medical NER Example using cTAKES](https://raw.githubusercontent.com/liamca/medical-ner-search/master/medical_ner_example.png)
-
-## Creating the Azure Blob Storage account and Upload Content
-This tutorial assumes that your content exists in Azure Blob Storage.  Although it is not critical to do this in order to build this type of application, it makes everything much simpler since Azure Search can easily crawl Azure Blob Storage which greatly reduces the amount of code required.
-
-You will find a set of medical files from PubMed that we will use for this purpose.  
-
-> Create an Azure Blob Storage container and upload these files to your Azure Blob Storage container.  If you are not familiar with how to do this, please see [this page](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal)
-
-## Setting up Azure Search
-Next, we need to create an Azure Search service that will make this content searchable to enable the types of applications show at the top.  
-
-### IMPORTANT: Since Azure Cognitive Search is in private preview as of the writing of this content, it is important that the Azure Search Service you create is either in *South Central US* or *West Europe*.
-
-To learn more about how to do this, please visit [Create an Azure Search service in the portal](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal).  For our demo purposes, you can create a [Free Azure Search Service](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search#free-trial).
-
-Once you have created the Azure Search service, you will need to get your Azure Search Service name as you specified in [this step](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal#name-the-service-and-url-endpoint) as well as the [Admin API Key](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet#identify-your-azure-search-services-admin-api-key).
-
-## Creating the Azure Search Index and Ingesting the Medical Documents
-In this step we will create an Azure Search index that will consists of the text extracted from the medical documents as well as some useful metadata from this content such as file name, size, authors, etc.  We will be leveraging Cognitive Search pipeline to help with this step.  One thing to note, is that if the content included images such as scans, or xrays, we could enable OCR to also extract text from these images within the PDF's.  However, since our test documents are purely text based, we do not need to do this for this tutorial.
-
-It is highly recommended that you review the documentation on how to [Configure Cognitive Search](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob) to learn how to point Azure Search at your Blob Storage container.
-
-As you configure Cognitive Search, it is important that you:
-
-1. Choose the defaults for the data source as shown here:
-
-![Cognitive Search Data Source](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-datasource.png)
-
-2. Choose the following skills:
-
-![Cognitive Search Skills](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-cognitive-search-skills.png)
-
-3. Configure the Azure Search Index with the following schema and index name:
-
-![Azure Search Index Schema](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-index-schema.png)
 
 ## Extracting Medical Entities from Content and Apply Entities to Azure Search
 The next step will be to take the content and run it through cTAKES to get the medical entities where are then applied to the [Azure Search Index](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet).  
