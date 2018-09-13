@@ -68,9 +68,6 @@ The next step will be to take some content and first run it through cTAKES to ge
 ### Running the Demo Code
 NOTE: This step requires you to have a valid UMLS account as outlined above.
 
-For this step we will be leveraging the MedicalEntityExtraction console application project. 
-> Open the MedicalEntityExtraction project and then open the project file Program.cs.
-
 This demo only extracts a few of the possible medical entity types that cTAKES supports including:
 > Disease and Disorders
 
@@ -81,5 +78,14 @@ This demo only extracts a few of the possible medical entity types that cTAKES s
 > Anatomical Sites
 
 Other entity types available can be [found here](http://ctakes.apache.org/apidocs/trunk/org/apache/ctakes/typesystem/type/textsem/EventMention.html)
+
+To get started, 
+> Open the MedicalEntityExtraction console application solution in Visual Studio. 
+
+> Open the MedicalEntityExtraction project and then open the project file Program.cs.
+
+> Update umlsuser and umlspw values to those obtained from setting up your UMLS account
+
+
 
 
