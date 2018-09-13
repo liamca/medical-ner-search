@@ -3,6 +3,8 @@ Leveraging Apache cTAKES and Azure Search to Build and Medical Search App
 
 The goal of this project is to show how to leverage [Apache cTAKES](http://ctakes.apache.org/) along with [Azure Search](https://azure.microsoft.com/en-us/services/search/) to build an effective document search application.  
 
+One of the most important things in building an effective search application is to have as much metadata about the content as possible.  Unfortunately with medical documents, this is typically a very unstructured piece of content where you usually only have the block of text from the content.  For that reason, it is very important to "enrich" this content by analyzing it to extract meaningful metadata about the content, such as what diseases were mentioned, or what parts of the anatomy were discussed.  By doing this, you start to put structure to your content which greatly helps what you can do with a search based application.
+
 Using this technique, you can build applications such as this [PubMed Search Demo](http://webmedsearch.azurewebsites.net)
 
 ![Medical NER Search Demo of PubMed](https://raw.githubusercontent.com/liamca/medical-ner-search/master/pubmed_search_demo.png)
@@ -69,13 +71,10 @@ The next step will be to take some content and first run it through cTAKES to ge
 NOTE: This step requires you to have a valid UMLS account as outlined above.
 
 This demo only extracts a few of the possible medical entity types that cTAKES supports including:
-> Disease and Disorders
-
-> Medication Mentions
-
-> Sign and Symptom 
-
-> Anatomical Sites
+* Disease and Disorders
+* Medication Mentions
+* Sign and Symptom 
+* Anatomical Sites
 
 Other entity types available can be [found here](http://ctakes.apache.org/apidocs/trunk/org/apache/ctakes/typesystem/type/textsem/EventMention.html)
 
