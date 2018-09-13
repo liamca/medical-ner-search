@@ -100,7 +100,7 @@ The results should look as follows:
 ![Medical NER Example using cTAKES](https://raw.githubusercontent.com/liamca/medical-ner-search/master/medical_ner_example.png)
 
 ## Extracting Medical Entities from Content and Apply Entities to Azure Search
-The next step will be to take the content and run it through cTAKES to get the medical entities where are then applied to the [Azure Search Index](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet).  
+The next step will be to take update the Azure Search index schema by adding some new fields that will hold the new medical entities and then take the content and run it through cTAKES to get the medical entities where are then applied to the [Azure Search Index](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet).  
 
 ### Running the Demo Code
 NOTE: This step requires you to have a valid UMLS account as outlined above.
@@ -110,9 +110,16 @@ During this step we will only extracts a few of the possible medical entity type
 * Medication Mentions
 * Sign and Symptom 
 * Anatomical Sites
+
 Other entity types available can be [found here](http://ctakes.apache.org/apidocs/trunk/org/apache/ctakes/typesystem/type/textsem/EventMention.html).
 
 To get started, 
 1. Open the MedicalEntityExtraction console application solution in Visual Studio. 
 2. Open the MedicalEntityExtraction project and then open the project file Program.cs.
 3. Update umlsuser and umlspw values to those obtained from setting up your UMLS account
+4. Update the SearchServiceName and SearchServiceKey to those of the Azure Search service you created above.  NOTE: the search service name should NOT include .search.windows.net, but only the search service name
+5. Run the application
+
+At this point you will have a complete Azure Search index that includes everything needed to build a search application.
+
+
