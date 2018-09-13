@@ -14,7 +14,14 @@ as well as create graph visualizations that shows correlations such as:
 
 This tutorial assumes that you will be leveraging Windows.
 
-## What is Apache CTakes
+## Overview of What this Tutorial Covers
+In this tutorial, we will walk through the following steps:
+1. Configure Apache cTAKES as a service to receive text and return medical entities
+2. Configure Azure Cognitive Search to ingest unstructured medical content (PDF's) from Azure Blob Storage into a search index that has important metadata as well as extracted text from the content
+3. Run an application that processes these PDF's against the Apace cTAKES service to extract medical entities and apply that to the Azure Search index
+4. Run an application that allows for searching and exploration of this medical content
+
+## What is Apache cTAKES
 cTAKES stands for clinical text analytics and knowledge extraction and is a very effective method of extracting various medical based entities (named entity extraction) from a corpus of text.  For example it can identify disease or anatomical terms mentioned within the text.  It has been trained using dataources such as [UMLS (snomed)](https://www.nlm.nih.gov/healthit/snomedct/).
 
 ## What is Azure Cognitive Search
