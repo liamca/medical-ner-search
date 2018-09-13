@@ -66,4 +66,20 @@ Once you have created the Azure Search service, you will need to get your Azure 
 The next step will be to take some content and first run it through cTAKES to get the metadata and then load the resulting content into an [Azure Search Index](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet).  For this demo, we will keep it simple and use some text files that have medical content in them.  In many cases, the content exists in file formats such as PDF and Office.  This demo does not show how to process this type of content, however [Apache Tika](https://tika.apache.org/) is an excellent tool for extracting text from these file types and you can see some .NET demo code on how to do this [text extraction here](https://github.com/liamca/AzureSearch-AzureFunctions-CognitiveServices/blob/master/ApacheTika/run.csx).
 
 ### Running the Demo Code
-...
+NOTE: This step requires you to have a valid UMLS account as outlined above.
+
+For this step we will be leveraging the MedicalEntityExtraction console application project. 
+> Open the MedicalEntityExtraction project and then open the project file Program.cs.
+
+This demo only extracts a few of the possible medical entity types that cTAKES supports including:
+> Disease and Disorders
+
+> Medication Mentions
+
+> Sign and Symptom 
+
+> Anatomical Sites
+
+Other entity types available can be [found here](http://ctakes.apache.org/apidocs/trunk/org/apache/ctakes/typesystem/type/textsem/EventMention.html)
+
+
