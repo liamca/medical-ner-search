@@ -1,7 +1,7 @@
 # Medical Document Search [Draft]
-Leveraging Apache cTAKES and Azure Search to Build and Medical Search App
+Leveraging Apache cTAKES and Azure Cognitive Search to Build and Medical Search App
 
-The goal of this project is to show how to leverage [Apache cTAKES](http://ctakes.apache.org/) along with [Azure Search](https://azure.microsoft.com/en-us/services/search/) to build an effective document search application.  
+The goal of this project is to show how to leverage [Apache cTAKES](http://ctakes.apache.org/) along with [Azure Cognitive Search](https://azure.microsoft.com/en-us/blog/announcing-cognitive-search-azure-search-cognitive-capabilities/) to build an effective document search application.  
 
 One of the most important things in building an effective search application is to have as much metadata about the content as possible.  Unfortunately with medical documents, this is typically a very unstructured piece of content where you usually only have the block of text from the content.  For that reason, it is very important to "enrich" this content by analyzing it to extract meaningful metadata about the content, such as what diseases were mentioned, or what parts of the anatomy were discussed.  By doing this, you start to put structure to your content which greatly helps what you can do with a search based application.
 
@@ -17,8 +17,8 @@ This tutorial assumes that you will be leveraging Windows.
 ## What is Apache CTakes
 cTAKES stands for clinical text analytics and knowledge extraction and is a very effective method of extracting various medical based entities (named entity extraction) from a corpus of text.  For example it can identify disease or anatomical terms mentioned within the text.  It has been trained using dataources such as [UMLS (snomed)](https://www.nlm.nih.gov/healthit/snomedct/).
 
-## What is Azure Search
-Azure Search is a platform as a service that makes it easy for developers to build great search experiences over their data.  
+## What is Azure Cognitive Search
+[Azure Cognitive Search](https://azure.microsoft.com/en-us/blog/announcing-cognitive-search-azure-search-cognitive-capabilities/) is a merger of Azure Search which is a platform as a service that makes it easy for developers to build great search experiences over their data with Cognitive Services which has the ability to leverage AI extract meaning from content such as text and images.  By combining these technologies, Cognitive Search has the ability to let developer build effective search applications over unstructured content such as medical documents.
 
 ## Getting Started with cTAKES
 In this section we will learn how to download and run a JAVA servlet based implimentation of Apache cTAKES that has the ability to receive through an API call a set of text that is processed and returns a set of medical named entities found in the content.
