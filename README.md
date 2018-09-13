@@ -81,7 +81,21 @@ Once you have created the Azure Search service, you will need to get your Azure 
 ## Creating the Azure Search Index and Ingesting the Medical Documents
 In this step we will create an Azure Search index that will consists of the text extracted from the medical documents as well as some useful metadata from this content such as file name, size, authors, etc.  We will be leveraging Cognitive Search pipeline to help with this step.  One thing to note, is that if the content included images such as scans, or xrays, we could enable OCR to also extract text from these images within the PDF's.  However, since our test documents are purely text based, we do not need to do this for this tutorial.
 
-> Create an Azure Search Index and configure the Azure Search Indexer to point to your Blob Storage container.  To learn more about how to do this, please see [this page](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob)
+It is highly recommended that you review the documentation on how to [Configure Cognitive Search](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob) to learn how to point Azure Search at your Blob Storage container.
+
+As you configure Cognitive Search, it is important that you:
+
+1. Choose the defaults for the data source as shown here:
+
+![Cognitive Search Data Source](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-datasource.png)
+
+2. Choose the following skills:
+
+![Cognitive Search Skills](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-cognitive-search-skills.png)
+
+3. Configure the Azure Search Index with the following schema and index name:
+
+![Azure Search Index Schema](https://raw.githubusercontent.com/liamca/medical-ner-search/master/images/demo-index-schema.png)
 
 ## Extracting Medical Entities from Content and Apply Entities to Azure Search
 The next step will be to take the content and run it through cTAKES to get the medical entities where are then applied to the [Azure Search Index](https://docs.microsoft.com/en-us/azure/search/search-create-index-dotnet).  
