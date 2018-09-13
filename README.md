@@ -1,4 +1,4 @@
-# Medical Document Search [Draft]
+# How To Build a Medical Document Search Application[Draft]
 Leveraging Apache cTAKES and Azure Cognitive Search to Build and Medical Search App
 
 The goal of this project is to show how to leverage [Apache cTAKES](http://ctakes.apache.org/) along with [Azure Cognitive Search](https://azure.microsoft.com/en-us/blog/announcing-cognitive-search-azure-search-cognitive-capabilities/) to build an effective document search application.  
