@@ -122,4 +122,12 @@ To get started,
 
 At this point you will have a complete Azure Search index that includes everything needed to build a search application.
 
+## Building the Web App Search Demo
+Included in this repo is a sample ASP.NET MVC application that is built to work with the index you just created.  You can find this sample in the WebMedSearch directory.  In order to use this demo, you should only need to modify the web.config and update the SearchServiceName and SearchServiceApiKey to those of the Azure Search service you created.  In addition, if you chose an index name other than medical-tutorial, you will also need to update the SearchServiceIndexName.  Once completed you should be able to run the demo web app.  
 
+Since the content uploaded is about the disease Morquio, this is a good term to try as your search.  You should see some data coming back that shows how effective the entity extraction was, even with this small dataset.
+
+In addition, click where it says "Explore Graph Relationships" and play with the various options in the drop down.  Notice once again, even through their are only a few documents it shows some interesting correlations.  You can double click on the nodes if you want to drill into them.  After this, you can go back to the document search and it will show the documents that correlate to this updated search selection.
+
+## I want to Learn More
+If you are interested in learning more about how to leverage Cognitive Search for your purposes or even if you want to do something similar over a non-medical set of content, feel free to reach out to myself and our team at: azuresearch_contact@microsoft.com
